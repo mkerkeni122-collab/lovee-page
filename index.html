@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For My Love ❤️</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+      }
+
+      /* LOCK SCREEN */
+      #lock {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+      }
+
+      #lock h2 {
+        color: white;
+        margin-bottom: 15px;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        background: #ff4d6d;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #ff1e50;
+      }
+
+      /* SURPRISE SCREEN */
+      #surprise {
+        display: none;
+        text-align: center;
+        color: white;
+      }
+
+      h1 {
+        font-size: 40px;
+        margin-top: 20px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+
+      /* HEART */
+      .heart {
+        position: relative;
+        width: 100px;
+        height: 90px;
+        margin: 0 auto;
+        animation: beat 1s infinite;
+      }
+
+      .heart:before,
+      .heart:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 80px;
+        background: red;
+        border-radius: 50px 50px 0 0;
+      }
+
+      .heart:before {
+        left: 50px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+
+      .heart:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+
+      @keyframes beat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lock">
+      <h2>💌 Enter the secret code</h2>
+      <input type="password" id="code" placeholder="Hint: my heart ❤️" />
+      <br />
+      <button onclick="unlock()">Open</button>
+    </div>
+
+    <div id="surprise">
+      <div class="heart"></div>
+      <h1>I Love You ❤️</h1>
+      <p>You are my favorite person in the world.</p>
+      <p>Every beat of my heart belongs to you 💕</p>
+    </div>
+
+    <script>
+      function unlock() {
+        const input = document.getElementById("code").value;
+        const correctCode = "love"; // 🔑 CHANGE THIS MESSAGE
+
+        if (input.toLowerCase() === correctCode) {
+          document.getElementById("lock").style.display = "none";
+          document.getElementById("surprise").style.display = "block";
+        } else {
+          alert("Wrong code 😢 Try again!");
+        }
+      }
+    </script>
+  </body>
+</html>
